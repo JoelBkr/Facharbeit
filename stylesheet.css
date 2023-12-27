@@ -1,5 +1,10 @@
 body {
-    background: blue;
+    height: 300vh;
+    background: rgb(0,252,255);
+    background: radial-gradient(circle, rgba(0,252,255,1) 0%, rgba(0,140,255,1) 50%, rgba(0,18,255,1) 100%); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .toolSmall {

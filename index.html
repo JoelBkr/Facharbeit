@@ -1,14 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facharbeit</title>
-    <link rel="stylesheet" href="stylesheet.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="pictures/faviconNeu.png" type="image/x-icon">
+  <title>Facharbeit</title>
+
+  <link rel="stylesheet" href="stylesheet.css">
+
+  <script src="https://kit.fontawesome.com/278526c7b3.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
 </head>
+
 <body>
-    <div class="toolSmall">
-        Hier kommz das tool rein
+  <div class="toolsContainer">
+    <div class="topBar">
+
+      <div class="dateClock" id="clock"></div>
+
+      <div class="searchBarWrapper" id="suche">
+        <input placeholder="Mit Google suchen..." class="searchBar" id="suchtext"
+          onkeypress="handleEnterSearchBar(event)"></input>
+        <br>
+        <button class=" searchButton" onclick="suche()"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <div class="dateClock" id="dateOutput"></div>
+
+      <script src="js/searchBar.js"></script>
     </div>
+
+    <div class="toolSmall" id="einheiten">
+      <script src="js/einheiten.js"></script>
+      <h1>Einheiten Umrechner</h1>
+      <div class="nebeneinanderContainer">
+      <div class="nebeneinander">
+        <select class="button" id="select1" onchange="selectChange()">
+          <option value="choose" selected>Einheitentyp wählen</option>
+          <option value="length">Länge</option>
+          <option value="time">Zeit</option>
+          <option value="velocity">Geschwindigkeit</option>
+          <option value="area">Fläche</option>
+          <option value="energy">Energie</option>
+          <option value="mass">Masse</option>
+          <option value="temperature">Temperatur</option>
+          <option value="volume">Volumen</option>
+          <option value="power">Leistung</option>
+        </select>
+      </div>
+      <div class="nebeneinander">
+        <input placeholder="Zahl zum Umrechnen" class="button" type="number" id="input" onchange="convert()">
+        <select class="button" id="select2" onchange="convert()"></select>
+      </div>
+      <div class="nebeneinander">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <button class="buttonRound" onclick="swapUnits()"><img src="pictures/swap-up-down.png" width="20px"></button>
+      </div>
+      <div class="nebeneinander">
+        <input class="button" type="text" id="result" disabled style="width: var(--inputWidth);">
+        <select class="button" id="select3" onchange="convert()"></select>
+      </div>
+      <div class="nebeneinander">
+        <button class="buttonRound" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
+        <button class="buttonRound" onclick="convert()">umrechen</button>
+      </div>
+    </div>
+    </div>
+
+    <div class="toolSmall">
+      <h1>Zufallsgenerator</h1>
+
+      <div class="nebeneinanderContainer">
+        <div class="nebeneinander">
+          <select class="button" id="type" name="type">
+            <option value="letters">Buchstaben</option>
+            <option value="numbers">Zahlen</option>
+          </select>
+          <input class="button" type="number" id="amount" name="amount" min="1" value="1" placeholder="Anzahl">
+        </div>
+  
+        <br>
+  
+        <div class="nebeneinander">
+          <input class="button" type="number" id="min" name="min" placeholder="Min Wert">
+          <div class="button" style="cursor: default;">bis</div>
+          <input class="button" type="number" id="max" name="max" placeholder="Max Wert">
+        </div>
+        <br>
+  
+        <div class="nebeneinander">
+          <button class="button" onclick="generate()">Generieren</button>
+          <input class="button" disabled id="resultRandom" style="width: var(--inputWidth);"></input>
+        </div>
+      </div>
+
+
+      <script src="js/random.js"></script>
+    </div>
+
+
+    <div class="toolSmall" id="calculator">
+      <h1>Taschenrechner</h1>
+      <form>
+        <input placeholder="Rechnung eingeben" class="result-bar" type="text" id="equation" name="equation"
+          style="width: 100%; font-size: 20px; padding: 5px;">
+        <br><br>
+
+        <div>
+          <td colspan="4"><button class="button-figure" type="button" onclick="calc()">=</button></td>
+          <input class="result-bar" id="solution" type="text" name="equation" disabled>
+          &nbsp;
+          <button class="buttonRound" type="button" onclick="copysolution()"><i class="fa-regular fa-copy"></i></button>
+        </div>
+      </form>
+      <table>
+        <tr>
+          <td><button class="button-figure" type="button" onclick="addToEquation('7')">7</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('8')">8</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('9')">9</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('/')">/</button></td>
+        </tr>
+        <tr>
+          <td><button class="button-figure" type="button" onclick="addToEquation('4')">4</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('5')">5</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('6')">6</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('*')">*</button></td>
+        </tr>
+        <tr>
+          <td><button class="button-figure" type="button" onclick="addToEquation('1')">1</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('2')">2</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('3')">3</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('-')">-</button></td>
+        </tr>
+        <tr>
+          <td><button class="button-figure" type="button" onclick="addToEquation('0')">0</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('.')">.</button></td>
+          <td><button class="button-figure" type="button" onclick="clearEquation()">C</button></td>
+          <td><button class="button-figure" type="button" onclick="addToEquation('+')">+</button></td>
+        </tr>
+      </table>
+
+      <script src="js/calculator.js"></script>
+    </div>
+
+    <div class="toolBig" id="translator">
+      <h1>Übersetzer</h1>
+      <div class="translatorContainer">
+        <div class="inputContainer">
+          <select id="source_lang" class="button" onchange="setPlaceholder(), uebersetze()"
+            style="margin-left: 50%; translate: -50%;">
+            <option value="de">Deutsch</option>
+            <option value="en">Englisch</option>
+            <option value="fr">Französisch</option>
+            <option value="es">Spanisch</option>
+            <option value="it">Italienisch</option>
+            <option value="pt">Portugiesisch</option>
+            <option value="nl">Niederländisch</option>
+            <option value="sv">Schwedisch</option>
+            <option value="no">Norwegisch</option>
+            <option value="da">Dänisch</option>
+            <option value="fi">Finnisch</option>
+            <option value="pl">Polnisch</option>
+            <option value="cs">Tschechisch</option>
+            <option value="sk">Slowakisch</option>
+            <option value="hu">Ungarisch</option>
+            <option value="ro">Rumänisch</option>
+            <option value="bg">Bulgarisch</option>
+            <option value="hr">Kroatisch</option>
+            <option value="sr">Serbisch</option>
+            <option value="sl">Slowenisch</option>
+            <option value="et">Estnisch</option>
+            <option value="lv">Lettisch</option>
+            <option value="lt">Litauisch</option>
+            <option value="el">Griechisch</option>
+            <option value="zh-CN">Chinesisch (vereinfacht)</option>
+          </select><br><br>
+
+          <textarea class="eingabe" type="text" id="input_text" name="input_text"
+            onkeypress="handleEnterTranslator(event)"></textarea>
+          <br><br>
+        </div>
+
+        <div class="outputContainer">
+          <select id="target_lang" class="button" onchange="setPlaceholder(), uebersetze()"
+            style="margin-left: 50%; translate: -50%;">
+            <option value="en">Englisch</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Französisch</option>
+            <option value="es">Spanisch</option>
+            <option value="it">Italienisch</option>
+            <option value="pt">Portugiesisch</option>
+            <option value="nl">Niederländisch</option>
+            <option value="sv">Schwedisch</option>
+            <option value="no">Norwegisch</option>
+            <option value="da">Dänisch</option>
+            <option value="fi">Finnisch</option>
+            <option value="pl">Polnisch</option>
+            <option value="cs">Tschechisch</option>
+            <option value="sk">Slowakisch</option>
+            <option value="hu">Ungarisch</option>
+            <option value="ro">Rumänisch</option>
+            <option value="bg">Bulgarisch</option>
+            <option value="hr">Kroatisch</option>
+            <option value="sr">Serbisch</option>
+            <option value="sl">Slowenisch</option>
+            <option value="et">Estnisch</option>
+            <option value="lv">Lettisch</option>
+            <option value="lt">Litauisch</option>
+            <option value="el">Griechisch</option>
+            <option value="zh-CN">Chinesisch (vereinfacht)</option>
+          </select><br><br>
+          <textarea class="eingabe" type="text" id="output_text" name="output_text"></textarea>
+        </div>
+      </div>
+      <script src="js/translator.js"></script>
+    </div>
+  </div>
+
 </body>
+
 </html>

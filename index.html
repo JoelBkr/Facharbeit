@@ -36,40 +36,66 @@
       <script src="js/einheiten.js"></script>
       <h1>Einheiten Umrechner</h1>
       <div class="nebeneinanderContainer">
-      <div class="nebeneinander">
-        <select class="button" id="select1" onchange="selectChange()">
-          <option value="choose" selected>Einheitentyp wählen</option>
-          <option value="length">Länge</option>
-          <option value="time">Zeit</option>
-          <option value="velocity">Geschwindigkeit</option>
-          <option value="area">Fläche</option>
-          <option value="energy">Energie</option>
-          <option value="mass">Masse</option>
-          <option value="temperature">Temperatur</option>
-          <option value="volume">Volumen</option>
-          <option value="power">Leistung</option>
-        </select>
-      </div>
-      <div class="nebeneinander">
-        <input placeholder="Zahl zum Umrechnen" class="button" type="number" id="input" onchange="convert()">
-        <select class="button" id="select2" onchange="convert()"></select>
-      </div>
-      <div class="nebeneinander">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <button class="buttonRound" onclick="swapUnits()"><img src="pictures/swap-up-down.png" width="20px"></button>
-      </div>
-      <div class="nebeneinander">
-        <input class="button" type="text" id="result" disabled style="width: var(--inputWidth);">
-        <select class="button" id="select3" onchange="convert()"></select>
-      </div>
-      <div class="nebeneinander">
-        <button class="buttonRound" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
-        <button class="buttonRound" onclick="convert()">umrechen</button>
+        <div class="nebeneinander">
+          <select class="button" id="select1" onchange="selectChange()">
+            <option value="choose" selected>Einheitentyp wählen</option>
+            <option value="length">Länge</option>
+            <option value="time">Zeit</option>
+            <option value="velocity">Geschwindigkeit</option>
+            <option value="area">Fläche</option>
+            <option value="energy">Energie</option>
+            <option value="mass">Masse</option>
+            <option value="temperature">Temperatur</option>
+            <option value="volume">Volumen</option>
+            <option value="power">Leistung</option>
+          </select>
+        </div>
+        <div class="nebeneinander">
+          <input placeholder="Zahl zum Umrechnen" class="button" type="number" id="input" onchange="convert()">
+          <select class="button" id="select2" onchange="convert()"></select>
+        </div>
+        <div class="nebeneinander">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <button class="buttonRound" onclick="swapUnits()"><img src="pictures/swap-up-down.png" width="20px"></button>
+        </div>
+        <div class="nebeneinander">
+          <input class="button" type="text" id="result" disabled style="width: var(--inputWidth);">
+          <select class="button" id="select3" onchange="convert()"></select>
+        </div>
+        <div class="nebeneinander">
+          <button class="buttonRound" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
+          <button class="buttonRound" onclick="convert()">umrechen</button>
+        </div>
       </div>
     </div>
+
+    <div class="toolSmall">
+      <h1>Links speichern</h1>
+      <div id="links-container" style="max-height: 340px; overflow: auto;">
+        <!-- Links werden hier dynamisch eingefügt -->
+      </div>
+
+      <button class="button" onclick="openPopup()">+</button>
+
+      <!-- Popup für das Hinzufügen/Bearbeiten von Links -->
+      <div id="popup" style="display: none;">
+        <div class="nebeneinander" style="justify-content: right;"><button class="button" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <input class="button" type="text" id="linkName" placeholder="Anzeigename">
+        <br>
+        <input class="button" type="text" id="linkURL" placeholder="Link">
+        <br>
+        <div class="nebeneinander">
+          <button class="button" id="saveButton" onclick="saveLink()"><i class="fa-solid fa-floppy-disk"></i></button>
+          <button class="button" id="deleteButton" onclick="deleteLink()" style="display: none;"><i
+              class="fa-solid fa-trash"></i></button>
+        </div>
+      </div>
+
+      <script src="js/links.js"></script>
     </div>
 
     <div class="toolSmall">
@@ -83,16 +109,16 @@
           </select>
           <input class="button" type="number" id="amount" name="amount" min="1" value="1" placeholder="Anzahl">
         </div>
-  
+
         <br>
-  
+
         <div class="nebeneinander">
           <input class="button" type="number" id="min" name="min" placeholder="Min Wert">
           <div class="button" style="cursor: default;">bis</div>
           <input class="button" type="number" id="max" name="max" placeholder="Max Wert">
         </div>
         <br>
-  
+
         <div class="nebeneinander">
           <button class="button" onclick="generate()">Generieren</button>
           <input class="button" disabled id="resultRandom" style="width: var(--inputWidth);"></input>

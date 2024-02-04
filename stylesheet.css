@@ -23,7 +23,8 @@ h1 {
   color: #000000;
 }
 
-select, button {
+select,
+button {
   cursor: pointer;
 }
 
@@ -31,7 +32,8 @@ input {
   cursor: text;
 }
 
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
   width: var(--inputWidth);
@@ -214,7 +216,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-  
+
 }
 
 .searchButton:hover {
@@ -290,62 +292,59 @@ body {
   justify-content: space-evenly;
 }
 
-/*Links*/
-.popup {
+
+
+/*Links speichern*/
+#popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ccc;
-  z-index: 9999;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  padding: 10px;
+  padding-top: 0px;
+  border-radius: 30px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 17.5px;
+  font-weight: 500;
+}
+
+#links-container {
+  list-style: none;
+  padding: 0;
+}
+
+.edit-buttons, .delete-buttons {
   display: none;
 }
 
-.delete-btn {
-  background-color: #f00;
-  color: #fff;
-  border: none;
-  border-radius: 0 10px 10px 0;
-  padding: 5px 10px;
-  cursor: pointer;
+.link-item {
   margin-bottom: 10px;
 }
 
-.savedLink {
-  background: #ffffff;
-  color: #333333;
-  border-radius: 10px 0 0 10px;
-  padding: 5px 8rem;
-  text-align: center;
-  text-decoration: none;
-  height: 50px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: left;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-top: 5px;
+.link-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.new-button {
-  background-color: #29bf12;
-  border: none;
-  color: #ffffff;
-  padding: 2px 6px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: left;
-  border-radius: 8px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-top: 5px;
+.link-container .button{
+  text-decoration: none;
+  box-shadow: none;
+  margin: 0;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

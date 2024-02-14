@@ -98,6 +98,79 @@
       <script src="js/links.js"></script>
     </div>
 
+    <div class="toolBig" id="translator">
+      <h1>Übersetzer</h1>
+      <div class="translatorContainer">
+        <div class="inputContainer">
+          <select id="source_lang" class="button" onchange="setPlaceholder(), uebersetze()"
+            style="margin-left: 50%; translate: -50%;">
+            <option value="de">Deutsch</option>
+            <option value="en">Englisch</option>
+            <option value="fr">Französisch</option>
+            <option value="es">Spanisch</option>
+            <option value="it">Italienisch</option>
+            <option value="pt">Portugiesisch</option>
+            <option value="nl">Niederländisch</option>
+            <option value="sv">Schwedisch</option>
+            <option value="no">Norwegisch</option>
+            <option value="da">Dänisch</option>
+            <option value="fi">Finnisch</option>
+            <option value="pl">Polnisch</option>
+            <option value="cs">Tschechisch</option>
+            <option value="sk">Slowakisch</option>
+            <option value="hu">Ungarisch</option>
+            <option value="ro">Rumänisch</option>
+            <option value="bg">Bulgarisch</option>
+            <option value="hr">Kroatisch</option>
+            <option value="sr">Serbisch</option>
+            <option value="sl">Slowenisch</option>
+            <option value="et">Estnisch</option>
+            <option value="lv">Lettisch</option>
+            <option value="lt">Litauisch</option>
+            <option value="el">Griechisch</option>
+            <option value="zh-CN">Chinesisch (vereinfacht)</option>
+          </select><br><br>
+
+          <textarea class="eingabe" type="text" id="input_text" name="input_text"
+            onkeypress="handleEnterTranslator(event)"></textarea>
+          <br><br>
+        </div>
+
+        <div class="outputContainer">
+          <select id="target_lang" class="button" onchange="setPlaceholder(), uebersetze()"
+            style="margin-left: 50%; translate: -50%;">
+            <option value="en">Englisch</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Französisch</option>
+            <option value="es">Spanisch</option>
+            <option value="it">Italienisch</option>
+            <option value="pt">Portugiesisch</option>
+            <option value="nl">Niederländisch</option>
+            <option value="sv">Schwedisch</option>
+            <option value="no">Norwegisch</option>
+            <option value="da">Dänisch</option>
+            <option value="fi">Finnisch</option>
+            <option value="pl">Polnisch</option>
+            <option value="cs">Tschechisch</option>
+            <option value="sk">Slowakisch</option>
+            <option value="hu">Ungarisch</option>
+            <option value="ro">Rumänisch</option>
+            <option value="bg">Bulgarisch</option>
+            <option value="hr">Kroatisch</option>
+            <option value="sr">Serbisch</option>
+            <option value="sl">Slowenisch</option>
+            <option value="et">Estnisch</option>
+            <option value="lv">Lettisch</option>
+            <option value="lt">Litauisch</option>
+            <option value="el">Griechisch</option>
+            <option value="zh-CN">Chinesisch (vereinfacht)</option>
+          </select><br><br>
+          <textarea class="eingabe" type="text" id="output_text" name="output_text"></textarea>
+        </div>
+      </div>
+      <script src="js/translator.js"></script>
+    </div>
+
     <div class="toolSmall">
       <h1>Zufallsgenerator</h1>
 
@@ -174,78 +247,7 @@
       <script src="js/calculator.js"></script>
     </div>
 
-    <div class="toolBig" id="translator">
-      <h1>Übersetzer</h1>
-      <div class="translatorContainer">
-        <div class="inputContainer">
-          <select id="source_lang" class="button" onchange="setPlaceholder(), uebersetze()"
-            style="margin-left: 50%; translate: -50%;">
-            <option value="de">Deutsch</option>
-            <option value="en">Englisch</option>
-            <option value="fr">Französisch</option>
-            <option value="es">Spanisch</option>
-            <option value="it">Italienisch</option>
-            <option value="pt">Portugiesisch</option>
-            <option value="nl">Niederländisch</option>
-            <option value="sv">Schwedisch</option>
-            <option value="no">Norwegisch</option>
-            <option value="da">Dänisch</option>
-            <option value="fi">Finnisch</option>
-            <option value="pl">Polnisch</option>
-            <option value="cs">Tschechisch</option>
-            <option value="sk">Slowakisch</option>
-            <option value="hu">Ungarisch</option>
-            <option value="ro">Rumänisch</option>
-            <option value="bg">Bulgarisch</option>
-            <option value="hr">Kroatisch</option>
-            <option value="sr">Serbisch</option>
-            <option value="sl">Slowenisch</option>
-            <option value="et">Estnisch</option>
-            <option value="lv">Lettisch</option>
-            <option value="lt">Litauisch</option>
-            <option value="el">Griechisch</option>
-            <option value="zh-CN">Chinesisch (vereinfacht)</option>
-          </select><br><br>
-
-          <textarea class="eingabe" type="text" id="input_text" name="input_text"
-            onkeypress="handleEnterTranslator(event)"></textarea>
-          <br><br>
-        </div>
-
-        <div class="outputContainer">
-          <select id="target_lang" class="button" onchange="setPlaceholder(), uebersetze()"
-            style="margin-left: 50%; translate: -50%;">
-            <option value="en">Englisch</option>
-            <option value="de">Deutsch</option>
-            <option value="fr">Französisch</option>
-            <option value="es">Spanisch</option>
-            <option value="it">Italienisch</option>
-            <option value="pt">Portugiesisch</option>
-            <option value="nl">Niederländisch</option>
-            <option value="sv">Schwedisch</option>
-            <option value="no">Norwegisch</option>
-            <option value="da">Dänisch</option>
-            <option value="fi">Finnisch</option>
-            <option value="pl">Polnisch</option>
-            <option value="cs">Tschechisch</option>
-            <option value="sk">Slowakisch</option>
-            <option value="hu">Ungarisch</option>
-            <option value="ro">Rumänisch</option>
-            <option value="bg">Bulgarisch</option>
-            <option value="hr">Kroatisch</option>
-            <option value="sr">Serbisch</option>
-            <option value="sl">Slowenisch</option>
-            <option value="et">Estnisch</option>
-            <option value="lv">Lettisch</option>
-            <option value="lt">Litauisch</option>
-            <option value="el">Griechisch</option>
-            <option value="zh-CN">Chinesisch (vereinfacht)</option>
-          </select><br><br>
-          <textarea class="eingabe" type="text" id="output_text" name="output_text"></textarea>
-        </div>
-      </div>
-      <script src="js/translator.js"></script>
-    </div>
+    
   </div>
 
 </body>

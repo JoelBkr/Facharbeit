@@ -1,3 +1,4 @@
+//Einheiten tauschen wenn auf den Knopf dafür gelickt wird
 function swapUnits() {
 	var eingabe = document.getElementById("select2").value;
 	var ausgabe = document.getElementById("select3").value;
@@ -8,10 +9,12 @@ function swapUnits() {
 }
 
 function selectChange() {
+	//Dropdwon Menüs auf Variablen speichern
 	var select1 = document.getElementById("select1");
 	var select2 = document.getElementById("select2");
 	var select3 = document.getElementById("select3");
 
+	//Die Einheiten für den Einheitentyp austauschen
 	if (select1.value == "choose") {
 		select2.innerHTML = '';
 		select3.innerHTML = '';
@@ -162,17 +165,18 @@ function selectChange() {
 }
 
 function convert() {
+	//Die eingegebenen Werte werden auf Variablen gespeichert
 	const fromUnit = document.getElementById("select2").value;
 	const toUnit = document.getElementById("select3").value;
 	const value = document.getElementById("input").value;
-
+//Die Funktion für die die Werte für die Konvertierung hat wird ausgeführt
 	const convertedValue = convertLength(value, fromUnit, toUnit);
-
+//Ergebnis wird in Feld fürs Ergebnis ausgegeben
 	const ergebnis = document.getElementById('result');
 	ergebnis.value = convertedValue;
 
 	if (fromUnit === toUnit) {
-		// Wenn select2 und select3 gleich sind, gib die Eingabezahl als Ausgabezahl aus
+		// Wenn select2 und select3 gleich sind, gib die Eingabezahl als Ausgabezahl aus, um Rechenleistung zu sparen
 		document.getElementById('result').value = value;
 	} else {
 		const convertedValue = convertLength(value, fromUnit, toUnit);
@@ -188,7 +192,7 @@ function copyToClipboard() {
 	document.execCommand("copy");
 	copyText.disabled = isDisabled; // Stelle den vorherigen Status des "disabled"-Attributs wieder her		
 }
-
+//Multiplikatoren für die Konvertierung
 function convertLength(value, fromUnit, toUnit) {
 	const conversionFactors = {
 		//Längen
@@ -757,7 +761,7 @@ function convertLength(value, fromUnit, toUnit) {
 		},
 	};
 
-	//Temperatur
+	//Temperaturen müssen durch die andere Rechnung anders beschrieben werden
 	if (fromUnit === "celsius") {
 		if (toUnit === "fahrenheit") {
 			return (value * 9 / 5) + 32;
@@ -777,10 +781,10 @@ function convertLength(value, fromUnit, toUnit) {
 			return (value * 9 / 5) - 459.67;
 		}
 	}
-
+//Umwandlung, falls man von einer kleineren in eine größere Einheit umrechnen möchte
 	const factor = conversionFactors[fromUnit.toLowerCase()][toUnit.toLowerCase()];
+	//Faktor wird mit dem eingegebenen Wert multipliziert
 	return value * factor;
-
 };
 
 

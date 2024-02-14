@@ -1,25 +1,20 @@
 function uebersetze() {
+  //Werte der Inputs auf Variablen speichern
     var input_text = document.getElementById("input_text").value;
     var source_lang = document.getElementById("source_lang").value;
     var target_lang = document.getElementById("target_lang").value;
+    //URL vorbereiten, um den Text zum API-Server zu senden, zusammen mit der Ausgangs- und Zielsprache
     var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(input_text) + "&langpair=" + source_lang + "|" + target_lang;
+    //Übersetzung vom API-Server abzurufen
     fetch(url)
         .then(response => response.json())
         .then(data => {
+          //Aus Antwort des Servers Übersetzten Text rausfiltern
             var output_text = data["responseData"]["translatedText"];
+            //Übersetzung ins Textfeld ausgeben
             document.getElementById("output_text").value = output_text;
         })
         .catch(error => console.log(error));
-
-}
-
-function swapLanguages() {
-    var source_lang = document.getElementById("source_lang").value;
-    var target_lang = document.getElementById("target_lang").value;
-    document.getElementById("source_lang").value = target_lang;
-    document.getElementById("target_lang").value = source_lang;
-
-    uebersetze();
 }
 
 function handleEnterTranslator(event) {
@@ -42,20 +37,3 @@ function setPlaceholder() {
     const outputField = document.getElementById("output_text");
     outputField.placeholder = placeholderTextTarget;
   }
-
-  
-  
-
-function detectLanguage() {
-    const inputText = document.getElementById("input_text").value;
-    const requestUrl = `https://translation.googleapis.com/language/translate/v2/detect?key=YOUR_API_KEY&q=${encodeURIComponent(inputText)}`;
-
-    fetch(requestUrl)
-        .then(response => response.json())
-        .then(data => {
-            const detectedLang = data.data.detections[0][0].language;
-            const sourceLangSelect = document.getElementById("source_lang");
-            sourceLangSelect.value = detectedLang;
-        })
-        .catch(error => console.error(error));
-}

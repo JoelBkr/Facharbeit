@@ -1,9 +1,12 @@
 function suche() {
+  //EIngegebener Suchtext wird abgespeichert
   var suchtext = document.getElementById("suchtext").value;
-  window.open("https://www.google.com/search?q=" + suchtext, "_blank");
+  //Link wird erstellt, der Suchtext in neuem Tab mit duckduckgo sucht
+  window.open("https://duckduckgo.com/?q=" + suchtext, "_blank");
 }
 
 function handleEnterSearchBar(event) {
+  //Wenn ENTER gedrückt wird, wird automatisch gesucht
   if (event.keyCode === 13 && document.getElementById('suchtext') === document.activeElement) {
     event.preventDefault(); // Verhindert, dass die Enter-Taste eine neue Zeile in der Textarea erzeugt
     suche();
@@ -69,14 +72,14 @@ function getCurrentHour(hours, minutes) {
       return "Freizeit 😁";
   }
 }
-
+//Überprüft ob Wochenende ist, um "Wochenende" anzuzeigen
 function isWeekend() {
   const today = new Date();
   const dayOfWeek = today.getDay();
   return dayOfWeek === 0 || dayOfWeek === 6; // 0 is Sunday, 6 is Saturday
 }
 
-
+//Überprüfung ob aktuelle Uhrzeit in Minuten in der übergebenen Minutenspanne ist
 function isInTimeRange(currentMinutes, startMinutes, endMinutes) {
   return currentMinutes >= startMinutes && currentMinutes < endMinutes;
 }
@@ -98,7 +101,7 @@ function getCurrentDate() {
   const formattedDay = day < 10 ? '0' + day : day;
   const formattedMonth = month < 10 ? '0' + month : month;
 
-  // Das gewünschte Format erstellen: Do, 25.01.2023
+  // Format erstellen: Tag der Woche, DD.MM.YYYY
   const formattedDate = `${dayOfWeek}, ${formattedDay}.${formattedMonth}.${year}`;
 
   return formattedDate;

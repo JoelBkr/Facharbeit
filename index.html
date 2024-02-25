@@ -2,43 +2,57 @@
 <html lang="de">
 
 <head>
+  <!-- Standarteinstellungen -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Symbol vom Tab -->
   <link rel="icon" href="pictures/faviconNeu.png" type="image/x-icon">
+  <!-- Titel der Webseite -->
   <title>Facharbeit</title>
 
   <link rel="stylesheet" href="stylesheet.css">
 
+  <!-- Einbindung von Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/278526c7b3.js" crossorigin="anonymous"></script>
+  <!-- Einbindung des JavaScript-Datei für allgemeine Funktionen -->
   <script src="js/script.js"></script>
 </head>
 
 <body>
+  <!-- Container für verschiedene Tools -->
   <div class="toolsContainer">
     <div class="topBar">
-
+      <!-- Uhrzeit -->
       <div class="dateClock" id="clock"></div>
 
+      <!-- Suchleiste -->
       <div class="searchBarWrapper" id="suche">
-        <input placeholder="Mit Google suchen..." class="searchBar" id="suchtext"
+        <input placeholder="Mit DuckDuckGo suchen..." class="searchBar" id="suchtext"
           onkeypress="handleEnterSearchBar(event)"></input>
         <br>
         <button class=" searchButton" onclick="suche()"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
 
+      <!-- Datum -->
       <div class="dateClock" id="dateOutput"></div>
 
+      <!-- Einbindung der JavaScript-Datei für die Suchleiste -->
       <script src="js/searchBar.js"></script>
     </div>
 
+    <!-- Einheiten-Umrechner Tool -->
     <div class="toolSmall" id="einheiten">
+      <!-- Einbindung der JavaScript-Datei für den Einheiten-Umrechner -->
       <script src="js/einheiten.js"></script>
       <h1>Einheiten Umrechner</h1>
+      <!-- Container für die Eingabe- und Ausgabe-Elemente des Umrechners -->
       <div class="nebeneinanderContainer">
+        <!-- Dropdown für die Auswahl des Einheitentyps -->
         <div class="nebeneinander">
           <select class="button" id="select1" onchange="selectChange()">
             <option value="choose" selected>Einheitentyp wählen</option>
+            <!-- Optionen für verschiedene Einheitentypen -->
             <option value="length">Länge</option>
             <option value="time">Zeit</option>
             <option value="velocity">Geschwindigkeit</option>
@@ -50,21 +64,26 @@
             <option value="power">Leistung</option>
           </select>
         </div>
+        <!-- Eingabe und Auswahl der zu konvertierenden Einheiten -->
         <div class="nebeneinander">
           <input placeholder="Zahl zum Umrechnen" class="button" type="number" id="input" onchange="convert()">
           <select class="button" id="select2" onchange="convert()"></select>
         </div>
+        <!-- Schaltfläche zum Vertauschen der Einheiten -->
         <div class="nebeneinander">
+          <!-- Platzhalter -->
           <div></div>
           <div></div>
           <div></div>
           <div></div>
           <button class="buttonRound" onclick="swapUnits()"><img src="pictures/swap-up-down.png" width="20px"></button>
         </div>
+        <!-- Ausgabe und Auswahl der konvertierten Einheiten -->
         <div class="nebeneinander">
           <input class="button" type="text" id="result" disabled style="width: var(--inputWidth);">
           <select class="button" id="select3" onchange="convert()"></select>
         </div>
+        <!-- Schaltflächen zum Kopieren und erneuten Umrechnen -->
         <div class="nebeneinander">
           <button class="buttonRound" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
           <button class="buttonRound" onclick="convert()">umrechen</button>
@@ -72,22 +91,29 @@
       </div>
     </div>
 
+    <!-- Tool zum Speichern von Links -->
     <div class="toolSmall">
       <h1>Links speichern</h1>
+      <!-- Container für die dynamische Anzeige von Links -->
       <div id="links-container" style="max-height: 340px; overflow: auto;">
         <!-- Links werden hier dynamisch eingefügt -->
       </div>
 
+      <!-- Schaltfläche zum Öffnen des Popup-Fensters zum Hinzufügen/Bearbeiten von Links -->
       <button class="button" onclick="openPopup()">+</button>
 
-      <!-- Popup für das Hinzufügen/Bearbeiten von Links -->
+      <!-- Popup-Fenster für das Hinzufügen/Bearbeiten von Links -->
       <div id="popup" style="display: none;">
-        <div class="nebeneinander" style="justify-content: right;"><button class="button" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
+        <!-- Schaltfläche zum Schließen des Popups -->
+        <div class="nebeneinander" style="justify-content: right;"><button class="button" onclick="closePopup()"><i
+              class="fa-solid fa-xmark"></i></button>
         </div>
+        <!-- Eingabefelder für Anzeigename und Link -->
         <input class="button" type="text" id="linkName" placeholder="Anzeigename">
         <br>
         <input class="button" type="text" id="linkURL" placeholder="Link">
         <br>
+        <!-- Schaltflächen zum Speichern und Löschen von Links -->
         <div class="nebeneinander">
           <button class="button" id="saveButton" onclick="saveLink()"><i class="fa-solid fa-floppy-disk"></i></button>
           <button class="button" id="deleteButton" onclick="deleteLink()" style="display: none;"><i
@@ -95,15 +121,18 @@
         </div>
       </div>
 
+      <!-- Einbindung der JavaScript-Datei für das Links-Tool -->
       <script src="js/links.js"></script>
     </div>
 
+    <!-- Übersetzer Tool -->
     <div class="toolBig" id="translator">
       <h1>Übersetzer</h1>
       <div class="translatorContainer">
         <div class="inputContainer">
           <select id="source_lang" class="button" onchange="setPlaceholder(), uebersetze()"
             style="margin-left: 50%; translate: -50%;">
+            <!-- Optionen für verschiedene Ausgangssprachen -->
             <option value="de">Deutsch</option>
             <option value="en">Englisch</option>
             <option value="fr">Französisch</option>
@@ -130,15 +159,16 @@
             <option value="el">Griechisch</option>
             <option value="zh-CN">Chinesisch (vereinfacht)</option>
           </select><br><br>
-
+          <!--Anzeige des zu übersetzenden Texts -->
           <textarea class="eingabe" type="text" id="input_text" name="input_text"
             onkeypress="handleEnterTranslator(event)"></textarea>
           <br><br>
         </div>
-
+        <!-- Dropdown für die Auswahl der Zielsprache -->
         <div class="outputContainer">
           <select id="target_lang" class="button" onchange="setPlaceholder(), uebersetze()"
             style="margin-left: 50%; translate: -50%;">
+            <!-- Optionen für verschiedene Zielsprachen -->
             <option value="en">Englisch</option>
             <option value="de">Deutsch</option>
             <option value="fr">Französisch</option>
@@ -165,26 +195,32 @@
             <option value="el">Griechisch</option>
             <option value="zh-CN">Chinesisch (vereinfacht)</option>
           </select><br><br>
+          <!-- Anzeige des übersetzten Texts -->
           <textarea class="eingabe" type="text" id="output_text" name="output_text"></textarea>
         </div>
       </div>
       <script src="js/translator.js"></script>
     </div>
 
+    <!-- Zufallsgenerator Tool -->
     <div class="toolSmall">
       <h1>Zufallsgenerator</h1>
 
+      <!-- Container für Eingabe- und Ausgabe-Elemente des Zufallsgenerators -->
       <div class="nebeneinanderContainer">
+        <!-- Dropdown für die Auswahl von Buchstaben oder Zahlen -->
         <div class="nebeneinander">
           <select class="button" id="type" name="type">
             <option value="letters">Buchstaben</option>
             <option value="numbers">Zahlen</option>
           </select>
+          <!-- Eingabefeld für die Anzahl der zu generierenden Elemente -->
           <input class="button" type="number" id="amount" name="amount" min="1" value="1" placeholder="Anzahl">
         </div>
 
         <br>
 
+        <!-- Eingabefelder für den minimalen und maximalen Wert (falls Zahlen ausgewählt sind) -->
         <div class="nebeneinander">
           <input class="button" type="number" id="min" name="min" placeholder="Min Wert">
           <div class="button" style="cursor: default;">bis</div>
@@ -192,24 +228,27 @@
         </div>
         <br>
 
+        <!-- Schaltflächen zum Generieren und Anzeigen des Ergebnisses -->
         <div class="nebeneinander">
           <button class="button" onclick="generate()">Generieren</button>
           <input class="button" disabled id="resultRandom" style="width: var(--inputWidth);"></input>
         </div>
       </div>
 
-
+      <!-- Einbindung der JavaScript-Datei für den Zufallsgenerator -->
       <script src="js/random.js"></script>
     </div>
 
-
+    <!-- Taschenrechner Tool -->
     <div class="toolSmall" id="calculator">
       <h1>Taschenrechner</h1>
       <form>
+        <!-- Eingabefeld für die Rechenaufgabe -->
         <input placeholder="Rechnung eingeben" class="result-bar" type="text" id="equation" name="equation"
           style="width: 100%; font-size: 20px; padding: 5px;">
         <br><br>
 
+        <!-- Schaltflächen für Berechnung, Anzeige der Lösung und Kopieren der Lösung -->
         <div>
           <td colspan="4"><button class="button-figure" type="button" onclick="calc()">=</button></td>
           <input class="result-bar" id="solution" type="text" name="equation" disabled>
@@ -217,26 +256,31 @@
           <button class="buttonRound" type="button" onclick="copysolution()"><i class="fa-regular fa-copy"></i></button>
         </div>
       </form>
+      <!-- Tabelle mit Schaltflächen für Ziffern und Operatoren -->
       <table>
         <tr>
+          <!-- Schaltflächen für Ziffern und Division -->
           <td><button class="button-figure" type="button" onclick="addToEquation('7')">7</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('8')">8</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('9')">9</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('/')">/</button></td>
         </tr>
         <tr>
+          <!-- Schaltflächen für Ziffern und Multiplikation -->
           <td><button class="button-figure" type="button" onclick="addToEquation('4')">4</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('5')">5</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('6')">6</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('*')">*</button></td>
         </tr>
         <tr>
+          <!-- Schaltflächen für Ziffern und Subtraktion -->
           <td><button class="button-figure" type="button" onclick="addToEquation('1')">1</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('2')">2</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('3')">3</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('-')">-</button></td>
         </tr>
         <tr>
+          <!-- Schaltflächen für Ziffern, Punkt (Dezimalpunkt) und Addition -->
           <td><button class="button-figure" type="button" onclick="addToEquation('0')">0</button></td>
           <td><button class="button-figure" type="button" onclick="addToEquation('.')">.</button></td>
           <td><button class="button-figure" type="button" onclick="clearEquation()">C</button></td>
@@ -244,10 +288,10 @@
         </tr>
       </table>
 
+      <!-- Einbindung der JavaScript-Datei für den Taschenrechner -->
       <script src="js/calculator.js"></script>
     </div>
 
-    
   </div>
 
 </body>

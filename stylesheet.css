@@ -1,22 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Stildefinitionen für das gesamte Dokument */
 
+/* Globale Variable für die Breite der Eingabefelder */
 :root {
   --inputWidth: 80px;
 }
 
+/* Globale Stildefinitionen für alle Elemente */
 * {
   scroll-behavior: smooth;
   font-family: system-ui;
   margin: 0;
   padding: 0;
-  font-family: 'Inter';
+  font-family: 'Arial';
 }
 
+/* Überschriften */
 h1 {
   letter-spacing: -1px;
   text-align: center;
-  font-family: 'Inter';
+  font-family: 'Arial';
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
@@ -32,6 +34,7 @@ input {
   cursor: text;
 }
 
+/* Stildefinitionen für numerische Input-Felder (z.B., Einheiten-Umrechner) */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -47,14 +50,15 @@ input[type="number"] {
   text-align: center;
 }
 
+/* Stil für deaktivierte Input-Felder */
 input:disabled {
   background-color: rgba(255, 255, 255, 0.75);
   cursor: default;
 }
 
+/* Hintergrundstil für den Body mit linearem Farbverlauf */
 body {
   background: rgb(1, 122, 248);
-
   background: linear-gradient(180deg, #00d0ff 0%, #003dd7 100%) fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -62,6 +66,7 @@ body {
   background-size: cover;
 }
 
+/* Container für die Tools: flexibles Layout, gleichmäßiger Abstand zwischen den Elementen */
 .toolsContainer {
   max-width: 100%;
   display: flex;
@@ -69,15 +74,7 @@ body {
   justify-content: space-evenly;
 }
 
-.toolBig {
-  width: 80vw;
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 3vh;
-  margin: 10px;
-}
-
+/* Stil für kleine Tools mit abgerundeten Ecken und leicht durchsichtigem Hintergrund */
 .toolSmall {
   width: 400px;
   height: 400px;
@@ -88,7 +85,17 @@ body {
   margin: 10px;
 }
 
-/*Calculator*/
+/* Stil für große Tools, ähnlich wie kleine Tools, aber breiter */
+.toolBig {
+  width: 80vw;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 3vh;
+  margin: 10px;
+}
+
+/* Stil für runde Buttons in den Tools */
 .buttonRound {
   background-color: #ffffff;
   border: none;
@@ -103,6 +110,7 @@ body {
   margin-top: 5px;
 }
 
+/* Allgemeiner Stil für Buttons in den Tools */
 .button {
   background-color: #ffffff;
   border: none;
@@ -116,6 +124,7 @@ body {
   margin-top: 5px;
 }
 
+/* Stil für Buttons in Taschenrechner-Tool */
 #calculator .button-figure {
   background-color: #ffffff;
   height: 50px;
@@ -132,11 +141,13 @@ body {
   border-radius: 30%;
 }
 
+/* Stil für den Taschenrechner: Tabelle wird zentriert */
 #calculator table {
   margin-left: 50%;
   translate: -50%;
 }
 
+/* Stil für das Ergebnis-Feld im Taschenrechner */
 .result-bar {
   background-color: #ffffff;
   border: none;
@@ -150,6 +161,7 @@ body {
   margin-top: 5px;
 }
 
+/* Container für nebeneinander liegende Elemente in den Tools */
 .nebeneinanderContainer {
   display: flex;
   flex-direction: column;
@@ -158,6 +170,7 @@ body {
   margin-top: -50px;
 }
 
+/* Stil für nebeneinander liegende Elemente in den Tools */
 .nebeneinander {
   display: flex;
   justify-content: space-evenly;
@@ -165,11 +178,12 @@ body {
   margin-top: 10px;
 }
 
+/* Stil für Hover-Effekt auf Input-Feldern */
 #input:hover {
   cursor: text;
 }
 
-/*Top Bar*/
+/* Stil für die Top-Bar */
 .topBar {
   width: 100%;
   z-index: 2;
@@ -180,6 +194,7 @@ body {
   align-items: center;
 }
 
+/* Stil für die Suchleiste */
 .searchBar {
   background-color: #ffffff;
   border: none;
@@ -199,14 +214,17 @@ body {
   line-height: 5vh;
 }
 
+/* Stil für Hover-Effekt auf der Suchleiste */
 .searchBar:hover {
   cursor: text;
 }
 
+/* Wrapper für die Suchleiste */
 .searchBarWrapper {
   display: flex;
 }
 
+/* Stil für den Such-Button */
 .searchButton {
   background-color: transparent;
   color: white;
@@ -216,13 +234,14 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-
 }
 
+/* Stil für Hover-Effekt auf den Such-Button */
 .searchButton:hover {
   cursor: pointer;
 }
 
+/* Stil für die Datums- und Uhr-Anzeige */
 .dateClock {
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
@@ -233,7 +252,7 @@ body {
   font-weight: 500;
 }
 
-/*Translator*/
+/* Stil für kleine Buttons im Übersetzer-Tool */
 .button-small {
   background-color: #ffffff;
   border: none;
@@ -250,10 +269,12 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+/* Hover-Effekt auf kleine Buttons im Übersetzer-Tool */
 .button-small:hover {
   scale: 1.01;
 }
 
+/* Stil für Input-Button im Übersetzer-Tool */
 .input-button {
   background-color: transparent;
   border: none;
@@ -266,6 +287,7 @@ body {
   margin: 0 5px;
 }
 
+/* Stil für das Eingabefeld im Übersetzer-Tool */
 .eingabe {
   background-color: #ffffff;
   border: none;
@@ -282,25 +304,24 @@ body {
   resize: none;
 }
 
+/* Hover-Effekt auf das Eingabefeld im Übersetzer-Tool */
 .eingabe:hover {
   cursor: text;
 }
 
+/* Container für Übersetzer-Tool: flexibles Layout, gleichmäßiger Abstand zwischen den Elementen */
 .translatorContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-
-
-/*Links speichern*/
+/* Popup-Stil für gespeicherte Links */
 #popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   padding: 10px;
@@ -311,47 +332,38 @@ body {
   font-weight: 500;
 }
 
+/* Stil für die Liste der gespeicherten Links */
 #links-container {
   list-style: none;
   padding: 0;
 }
 
+/* Stil für Bearbeiten- und Löschen-Buttons (initial versteckt) */
 .edit-buttons, .delete-buttons {
   display: none;
 }
 
+/* Stil für jedes Link-Element */
 .link-item {
   margin-bottom: 10px;
 }
 
+/* Container-Stil für jedes Link-Element: flexibles Layout, gleichmäßiger Abstand zwischen den Elementen */
 .link-container {
   display: flex;
   justify-content: space-between;
 }
 
-.link-container .button{
+/* Stil für die Buttons innerhalb der Link-Container */
+.link-container .button {
   text-decoration: none;
   box-shadow: none;
   margin: 0;
 }
 
+/* Media Queries für responsives Design */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Verstecke die Navbar bei Bildschirmen bis 1024px Breite und zeige sie bei Bedarf mit dem Menü-Icon */
 @media screen and (max-width: 1024px) {
   .navbar {
     transform: translateX(-240px);
@@ -366,42 +378,28 @@ body {
   }
 }
 
-@media (max-width: 1080px) {
-
-  #input_text,
-  #output_text {
-    width: 100%;
-  }
-}
-
+/* Ändere den linken Rand der Tool-Container bei Bildschirmen bis 1024px Breite */
 @media (max-width: 1024px) {
-  #header {
-    position: fixed;
-  }
-
   .toolsContainer {
     margin-left: 0px;
   }
 }
 
+/* Ändere die Breite der kleinen Tools bei Bildschirmen bis 1159px Breite */
 @media (max-width: 1159px) {
   .toolSmall {
     width: 40%;
   }
 }
 
-@media (max-width: 920px) {
-  .toolSmall {
-    width: 40%;
-  }
-}
-
+/* Ändere die Breite der kleinen Tools bei Bildschirmen bis 600px Breite */
 @media (max-width: 600px) {
   .toolSmall {
     width: 80%;
   }
 }
 
+/* Ändere die Ausrichtung der Top-Bar und den Abstand des Datum-Uhr-Elements bei Bildschirmen bis 930px Breite */
 @media (max-width: 930px) {
   .topBar {
     flex-direction: column;

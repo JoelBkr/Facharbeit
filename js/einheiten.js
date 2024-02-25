@@ -781,7 +781,7 @@ function convertLength(value, fromUnit, toUnit) {
 			return (value * 9 / 5) - 459.67;
 		}
 	}
-//Umwandlung, falls man von einer kleineren in eine größere Einheit umrechnen möchte
+//Umwandlung in kleinbuchstaben, für Fehlerreduktion
 	const factor = conversionFactors[fromUnit.toLowerCase()][toUnit.toLowerCase()];
 	//Faktor wird mit dem eingegebenen Wert multipliziert
 	return value * factor;

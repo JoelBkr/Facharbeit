@@ -252,39 +252,14 @@ body {
   font-weight: 500;
 }
 
-/* Stil für kleine Buttons im Übersetzer-Tool */
-.button-small {
-  background-color: #ffffff;
-  border: none;
-  color: #333333;
-  padding: 2px 6px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: left;
-  border-radius: 8px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-top: 5px;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Hover-Effekt auf kleine Buttons im Übersetzer-Tool */
-.button-small:hover {
-  scale: 1.01;
-}
-
-/* Stil für Input-Button im Übersetzer-Tool */
-.input-button {
-  background-color: transparent;
-  border: none;
-  color: #333333;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-  text-align: center;
-  margin: 0 5px;
+/* Stil für den Auslöse Button fürs Übersetzen */
+.translatorContainer .buttonRound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px; 
+  width: 40px;
+  font-size: 30px;
 }
 
 /* Stil für das Eingabefeld im Übersetzer-Tool */
